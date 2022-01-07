@@ -36,7 +36,12 @@ public abstract class Conta implements IConta{
 
 	@Override
 	public void sacar(double valor) {
-		this.saldo = saldo - valor;
+		if(this.saldo < valor) {
+			System.out.println("Operação não permitida!!! Saldo insuficiênte... ");
+		}else {
+			this.saldo = saldo - valor;
+		}
+		
 		
 	}
 
@@ -48,9 +53,12 @@ public abstract class Conta implements IConta{
 
 	@Override
 	public void transferir(double valor, Conta contaDestino) {
-		this.sacar(valor);
-		contaDestino.depositar(valor);
-		
+		if(this.saldo < valor) {
+			System.out.println("Operação não permitida!!! Saldo insuficiênte... ");
+		}else {
+			this.sacar(valor);		
+			contaDestino.depositar(valor);
+		}
 	}
 	
 	public void imprimirInfosComuns() {

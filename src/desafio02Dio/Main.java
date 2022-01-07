@@ -12,17 +12,22 @@ public class Main {
 		
 		Conta cc = new ContaCorrente(c1);
 		
-		cc.depositar(56623);
+		cc.depositar(500);
 		Conta cp = new ContaPoupanca(c1);
 		Conta cp1 = new ContaPoupanca(c2);
 		
-		cc.transferir(6231, cp);
+		cc.transferir(100, cp);
+		
+		cc.sacar(1000);
 		
 		cp.transferir(500, cp1);
 		
 				
 		
 		cc.imprimirExtrato();
+		cp.imprimirExtrato();
+		cp1.imprimirExtrato();
+		cp.transferir(50, cp1);
 		cp.imprimirExtrato();
 		cp1.imprimirExtrato();
 
